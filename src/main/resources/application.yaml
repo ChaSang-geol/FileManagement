@@ -28,5 +28,5 @@ upload.directory: /temp/upload
 download.directory: /temp/download
 
 # 미리 정의해놓은 토큰
-predefined.token: SKinnovationFTAapiKey
+predefined.token: predefinedMyApiKey
 

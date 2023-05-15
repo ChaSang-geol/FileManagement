@@ -15,7 +15,7 @@ public class FileDownloadControllerTest {
   private String fileName = "test.xml";
   private String apiUrl = "http://localhost:8080/api/files/download";
   private String filePath = "/temp/download/";
-  private String apiKey = "SKinnovationFTAapiKey";
+  private String apiKey = "predefinedMyApiKey";
 
   @Test
   void testDownloadFile() throws IOException {

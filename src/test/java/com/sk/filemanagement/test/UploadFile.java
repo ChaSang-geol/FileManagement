@@ -19,7 +19,7 @@ public class UploadFile {
   private String fileName = "test.txt";
   private String apiUrl = "http://localhost:8080/api/files/upload";
   private String filePath = "/temp/";
-  private String apiKey = "SKinnovationFTAapiKey";
+  private String apiKey = "predefinedMyApiKey";
 
   @Test
   public void whenUploadFile_thenCorrect() throws IOException {
