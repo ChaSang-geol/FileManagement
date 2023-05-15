@@ -1,0 +1,32 @@
+spring:
+  data:
+    rest:
+      base-path: /api/v1
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  datasource:
+    driverClassName: org.h2.Driver
+    #url: jdbc:h2:file:./target/h2db/db/application;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:testdb
+    username: test
+    password: test
+
+# 파일업로드 크기 설정 등
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+file:
+  folder:
+    name: /temp
+upload.directory: /temp/upload
+download.directory: /temp/download
+
+# 미리 정의해놓은 토큰
+predefined.token: SKinnovationFTAapiKey
+
