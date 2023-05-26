@@ -17,6 +17,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.disable());
         http.authorizeHttpRequests(authorizeRequests -> authorizeRequests
                 // .antMatchers("/signin/**").permitAll()
+                .antMatchers("/api/status").permitAll()
                 .anyRequest().authenticated())
 
                 // .authorizeHttpRequests((authz) -> authz.anyRequest().authenticated())
