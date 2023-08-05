@@ -2,9 +2,9 @@ package com.sk.filemanagement.controller;
 
 import org.junit.jupiter.api.Test;
 
-public class FileDownloadControllerTest {
+public class FileUploadControllerTest {
   @Test
-  void testDownloadFile() {
+  void testUploadFile() {
 
   }
 }

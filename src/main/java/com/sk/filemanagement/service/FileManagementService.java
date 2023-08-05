@@ -3,12 +3,12 @@ package com.sk.filemanagement.service;
 import java.io.IOException;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.sk.filemanagement.dto.FileName;
 
 public interface FileManagementService {
 
-  ResponseEntity getFile(
-      String fileName) throws IOException;
+  public ResponseEntity<FileName> getFile(String fileName) throws IOException;
+  public Boolean fileNameCheck(String fileName) throws Exception;
+
 
 }

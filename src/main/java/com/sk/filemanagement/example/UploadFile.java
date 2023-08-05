@@ -1,4 +1,4 @@
-package com.sk.filemanagement.test;
+package com.sk.filemanagement.example;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,17 +11,16 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootTest
+@RestController
 public class UploadFile {
   private String fileName = "test.txt";
   private String apiUrl = "http://localhost:8080/api/files/upload";
   private String filePath = "/temp/";
   private String apiKey = "predefinedMyApiKey";
 
-  @Test
+
   public void whenUploadFile_thenCorrect() throws IOException {
     MultipartBody requestBody = new MultipartBody.Builder()
         .setType(MultipartBody.FORM)
@@ -49,7 +48,7 @@ public class UploadFile {
     response.close();
   }
 
-  @Test
+  
   public void whenSetDefaultHeader_thenCorrect()
       throws IOException {
 
@@ -73,7 +72,7 @@ public class UploadFile {
     response.close();
   }
 
-  @Test
+
   public void FileUploadTest() throws Exception {
     OkHttpClient client = new OkHttpClient();
 
