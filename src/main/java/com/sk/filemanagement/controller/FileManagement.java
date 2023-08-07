@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -73,7 +74,7 @@ public class FileManagement {
       if (!file.isEmpty()) {
 
         String fileName = StringUtils.getFilename(file.getOriginalFilename());
-        Path targetLocation = Path.of(uploadDirectory + File.separator + fileName);
+        Path targetLocation = FileSystems.getDefault().getPath(uploadDirectory + File.separator + fileName);
         InputStream source = file.getInputStream();
         Files.copy(source, targetLocation, StandardCopyOption.REPLACE_EXISTING);
         source.close();
@@ -85,12 +86,12 @@ public class FileManagement {
       }
     } catch (IOException e) {
       log.error("# 파일 업로드 IOException 오류 : " + token, e);
-      return "파일 업로드 중에 오류가 발생했습니다: " + e.getMessage();
+      return "파일 업로드 중에 오류가 발생했습니다: IOException";// + e.getMessage();
 
     } catch (Exception e) {
       // handle exception
-      log.error("# 파일 업로드 Runtime 오류 : " + token, e);
-      return "파일 업로드 중에 오류가 발생했습니다 : " + e.getMessage();
+      log.error("# 파일 업로드 예러(Runtime 오류) : " + token, e);
+      return "파일 업로드 중에 오류가 발생했습니다. Runtime 오류";// + e.getMessage();
     }
     // return "파일 업로드가 성공적으로 완료되었습니다.";
   }
