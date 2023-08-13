@@ -13,8 +13,9 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .httpBasic(httpBasic -> httpBasic.disable())
-                .cors(cors -> cors.disable());
+                .httpBasic(httpBasic -> httpBasic.disable());
+                // .cors(cors -> cors.disable());
+        http.cors();
         http.authorizeHttpRequests(authorizeRequests -> authorizeRequests
                 // .antMatchers("/signin/**").permitAll()
                 .antMatchers("/api/status").permitAll()
