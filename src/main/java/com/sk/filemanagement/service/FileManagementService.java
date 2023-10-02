@@ -7,8 +7,12 @@ import com.sk.filemanagement.dto.FileName;
 
 public interface FileManagementService {
 
-  public ResponseEntity<FileName> getFile(String fileName) throws IOException;
-  public Boolean fileNameCheck(String fileName) throws Exception;
+  public ResponseEntity<FileName> getFile(String fileName);
 
+  public boolean fileNameCheck(String fileName);
+
+  public boolean deleteFile(String filePath);
+
+  public boolean moveFile(String sourcePath, String destinationPath);
 
 }

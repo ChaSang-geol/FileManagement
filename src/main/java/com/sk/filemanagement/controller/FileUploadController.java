@@ -26,6 +26,9 @@ public class FileUploadController {
   @Value("${download.directory}")
   private String downloadDirectory;
 
+  @Value("${file.folder.name}")
+  private String tempDirectory;
+
   @Value("${predefined.token}")
   private String this_predefined_token;
 
@@ -41,7 +44,9 @@ public class FileUploadController {
           // String fileName = new File(file.getOriginalFilename()).getCanonicalPath();
           String fileName = StringUtils.getFilename(file.getOriginalFilename());
           // 업로드한 디렉토리 + 전송 파일이름으로 파일 path를 만듦니다.
-          Path targetLocation = FileSystems.getDefault().getPath(uploadDirectory + File.separator + fileName);
+          // Path targetLocation = FileSystems.getDefault().getPath(uploadDirectory +
+          // File.separator + fileName);
+          Path targetLocation = FileSystems.getDefault().getPath(tempDirectory + File.separator + fileName);
           // input 스트림에 있는 파일을 업로드 디렉토리에 저장, 같은 파일이 있으면 덮어쓰기 합니다.
           InputStream source = file.getInputStream();
           Files.copy(source, targetLocation, StandardCopyOption.REPLACE_EXISTING);
